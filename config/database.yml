@@ -1,0 +1,21 @@
+development:
+  adapter: mysql
+  encoding: utf8
+  database: geboon_development
+  username: root
+  password:
+
+test:
+  adapter: mysql
+  encoding: utf8
+  database: geboon_test
+  username: root
+  password:
+
+production:
+  adapter: mysql
+  encoding: utf8
+  database: geboon
+  username: root
+  password:
+
