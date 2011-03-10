@@ -9,7 +9,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110310214148) do
+ActiveRecord::Schema.define(:version => 20110310222411) do
+
+  create_table "ads", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "phone"
+    t.boolean  "show_phone"
+    t.integer  "category_id"
+    t.integer  "city_id"
+    t.string   "title"
+    t.text     "description"
+    t.float    "price"
+    t.boolean  "approved"
+    t.boolean  "private"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "categories", :force => true do |t|
     t.string "name"
