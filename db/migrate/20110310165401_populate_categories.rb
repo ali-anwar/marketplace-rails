@@ -1,0 +1,41 @@
+class PopulateCategories < ActiveRecord::Migration
+  def self.up
+    Category.create :name => "Houses", :parent => "Real estate"
+    Category.create :name => "Apartments", :parent => "Real estate"
+    Category.create :name => "Vacation homes", :parent => "Real estate"
+    Category.create :name => "Offices", :parent => "Real estate"
+    Category.create :name => "Land", :parent => "Real estate"
+    Category.create :name => "Flatmates/Paying Guest", :parent => "Real estate"
+    Category.create :name => "Other", :parent => "Real estate"
+    Category.create :name => "Cars", :parent => "Vehicles"
+    Category.create :name => "Motorcycles", :parent => "Vehicles"
+    Category.create :name => "Accessories & parts", :parent => "Vehicles"
+    Category.create :name => "Trucks", :parent => "Vehicles"
+    Category.create :name => "Other vehicles", :parent => "Vehicles"
+    Category.create :name => "Home & Garden", :parent => "Home & Personal items"
+    Category.create :name => "Clothing", :parent => "Home & Personal items"
+    Category.create :name => "For Kids (Toys & Clothes)", :parent => "Home & Personal items"
+    Category.create :name => "Jewelry & Watches", :parent => "Home & Personal items"
+    Category.create :name => "Hobbies", :parent => "Leisure, Sports & hobby"
+    Category.create :name => "Sports & Bicycles", :parent => "Leisure, Sports & hobby"
+    Category.create :name => "Movies, Books & Magazines", :parent => "Leisure, Sports & hobby"
+    Category.create :name => "Pets", :parent => "Leisure, Sports & hobby"
+    Category.create :name => "Tickets", :parent => "Leisure, Sports & hobby"
+    Category.create :name => "Art & Collectibles", :parent => "Leisure, Sports & hobby"
+    Category.create :name => "Music & Instruments", :parent => "Leisure, Sports & hobby"
+    Category.create :name => "Computers & Accessories", :parent => "Electronics"
+    Category.create :name => "TV, Audio, Video, Cameras", :parent => "Electronics"
+    Category.create :name => "Cellphones & gadgets", :parent => "Electronics"
+    Category.create :name => "Video games & consoles", :parent => "Electronics"
+    Category.create :name => "Job offers", :parent => "Jobs & Services"
+    Category.create :name => "Resumes", :parent => "Jobs & Services"
+    Category.create :name => "Services", :parent => "Jobs & Services"
+    Category.create :name => "Classes", :parent => "Jobs & Services"
+    Category.create :name => "Professional/Office equipment", :parent => "Jobs & Services"
+    Category.create :name => "Other", :parent => ""
+  end
+
+  def self.down
+    execute "TRUNCATE table #{Category.table_name}"
+  end
+end
