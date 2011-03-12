@@ -5,6 +5,8 @@ class Ad < ActiveRecord::Base
   belongs_to :city
   belongs_to :user
 
+  has_many :details
+
   attr_protected :approved
 
   validates_presence_of     :name
