@@ -1,0 +1,69 @@
+<% content_for(:head) do %>
+  <%= javascript_include_tag 'ads' %>
+<% end %>
+
+<h1>New ad</h1>
+
+<% form_for(@ad) do |f| %>
+  <%= f.error_messages %>
+
+  <table>
+    <tr>
+      <td></td>
+      <td><%= f.radio_button :private, "1", :checked => @ad.private %> <%= f.label :private, "Private" %> <%= f.radio_button :private, "0", :checked => !@ad.private %> <%= f.label :private, "Company" %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :name %></td>
+      <td><%= f.text_field :name %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :email %></td>
+      <td><%= f.text_field :email %></td>
+    </tr>
+
+    <% unless logged_in? %>
+      <tr>
+        <td><%= f.label :password %></td>
+        <td><%= password_field_tag 'ad[password]', nil %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :password_confirmation %></td>
+        <td><%= password_field_tag 'ad[password_confirmation]', nil %></td>
+      </tr>
+    <% end %>
+
+    <tr>
+      <td><%= f.label :phone %></td>
+      <td><%= f.text_field :phone %> <%= f.check_box :show_phone %> <%= f.label :show_phone %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :category_id %></td>
+      <td><%= category_select_box(:model => "ad", :attribute => "category_id", :value => @ad.category_id, :parent_disabled => true) %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :region %></td>
+      <td><%= regions_select_box(:model => "ad", :attribute => "region", :value => @ad.region) %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :city_id %></td>
+      <td><%= cities_select_box(:model => "ad", :attribute => "city_id", :value => @ad.city_id) %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :title %></td>
+      <td><%= f.text_field :title %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :description %></td>
+      <td><%= f.text_area :description %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :price %></td>
+      <td><%= f.text_field :price %></td>
+    </tr>
+    <tr>
+      <td><%= f.submit 'Create' %></td>
+    </tr>
+  </table>
+<% end %>
+
+<%= link_to 'Back', ads_path %>

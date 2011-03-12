@@ -1,0 +1,38 @@
+<h1>Listing ads</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Show phone</th>
+    <th>Category</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Price</th>
+    <th>Approved</th>
+    <th>Private</th>
+  </tr>
+
+<% @ads.each do |ad| %>
+  <tr>
+    <td><%=h ad.name %></td>
+    <td><%=h ad.email %></td>
+    <td><%=h ad.phone %></td>
+    <td><%=h ad.show_phone %></td>
+    <td><%=h ad.category_id %></td>
+    <td><%=h ad.title %></td>
+    <td><%=h ad.description %></td>
+    <td><%=h ad.price %></td>
+    <td><%=h ad.approved %></td>
+    <td><%=h ad.private %></td>
+    <td><%= link_to 'Show', ad %></td>
+    <td><%= link_to 'Edit', edit_ad_path(ad) %></td>
+    <td><%= link_to 'Destroy', ad, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New ad', new_ad_path %>

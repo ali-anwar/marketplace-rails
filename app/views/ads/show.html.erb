@@ -1,0 +1,53 @@
+<p>
+  <b>Name:</b>
+  <%=h @ad.name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @ad.email %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%=h @ad.phone %>
+</p>
+
+<p>
+  <b>Show phone:</b>
+  <%=h @ad.show_phone %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%=h @ad.category_id %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%=h @ad.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @ad.description %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%=h @ad.price %>
+</p>
+
+<p>
+  <b>Approved:</b>
+  <%=h @ad.approved %>
+</p>
+
+<p>
+  <b>Private:</b>
+  <%=h @ad.private %>
+</p>
+
+
+<%= link_to 'Edit', edit_ad_path(@ad) %> |
+<%= link_to 'Back', ads_path %>

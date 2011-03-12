@@ -7,6 +7,7 @@ class CreateAds < ActiveRecord::Migration
       t.boolean :show_phone
       t.integer :category_id
       t.integer :city_id
+      t.integer :user_id
       t.string :title
       t.text :description
       t.float :price
