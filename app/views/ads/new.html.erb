@@ -2,6 +2,10 @@
   <%= javascript_include_tag 'ads' %>
 <% end %>
 
+<div id="data-container">
+  <%= render :partial => "ads/new/details.html.erb"%>
+</div>
+
 <h1>New ad</h1>
 
 <% form_for(@ad) do |f| %>
@@ -39,6 +43,10 @@
     <tr>
       <td><%= f.label :category_id %></td>
       <td><%= category_select_box(:model => "ad", :attribute => "category_id", :value => @ad.category_id, :parent_disabled => true) %></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><span id="details-container"></span></td>
     </tr>
     <tr>
       <td><%= f.label :region %></td>

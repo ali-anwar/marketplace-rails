@@ -8,6 +8,7 @@ class Ad < ActiveRecord::Base
   has_many :details
 
   attr_protected :approved
+  attr_accessor :region, :password, :t
 
   validates_presence_of     :name
   validates_format_of       :name,     :with => Authentication.name_regex,  :message => Authentication.bad_name_message
@@ -34,7 +35,10 @@ class Ad < ActiveRecord::Base
   validates_presence_of     :password, :if => :has_new_user?
   validates_confirmation_of :password, :if => :has_new_user?, :message => "should match confirmation"
 
-  attr_accessor :region, :password
+  def initialize(options = {})
+    options[:t] ||= {}
+    super(options)
+  end
 
   def has_new_user?
     self.user_id.blank?

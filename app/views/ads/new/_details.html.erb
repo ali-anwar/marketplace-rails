@@ -1,0 +1,38 @@
+<div id="detail-empty">
+</div>
+
+<div id="detail-defaults">
+  <% ['For sale', 'Want to buy'].each do |name| %>
+    <%= radio_button_tag "ad[t][status]", name, @ad.t[:status] %> <%= name %>
+  <% end %>
+</div>
+
+<div id="detail-basic-estates">
+  <% ['For sale', 'For rent', 'Want to rent', 'Want to buy'].each do |name| %>
+    <%= radio_button_tag "ad[t][status]", name, @ad.t[:status] == name %> <%= name %>
+  <% end %>
+  <br/><br/>
+  Address: <%= text_field_tag 'ad[t][address]', @ad.t[:address] %>
+  <br/><br/>
+  Number of rooms: <%= number_of_rooms_select_tag('ad[t][number_of_rooms]', @ad.t[:number_of_rooms]) %>
+  <br/><br/>
+  Size: <%= text_field_tag 'ad[t][size]', @ad.t[:size] %> m²
+</div>
+
+<div id="detail-basic-vehicles">
+  <% ['For sale', 'Want to buy'].each do |name| %>
+    <%= radio_button_tag "ad[t][status]", name, @ad.t[:status] %> <%= name %>
+  <% end %>
+  <br/>
+  Registration Year: <%= vehicle_registration_year_select_tag('ad[t][vehicle_registration_year]', @ad.t[:vehicle_registration_year]) %>
+  Mileage: <%= vehicle_mileage_select_tag('ad[t][vehicle_mileage]', @ad.t[:vehicle_mileage]) %>
+</div>
+
+<div id="detail-other-vehicles">
+  <% ['For sale', 'Want to buy'].each do |name| %>
+    <%= radio_button_tag "ad[t][status]", name, @ad.t[:status] %> <%= name %>
+  <% end %>
+  <br/>
+  <%= vehicle_category_select_tag('ad[t][vehicle_category]', @ad.t[:vehicle_category]) %>
+</div>
+

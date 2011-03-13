@@ -55,3 +55,7 @@ a:hover { color: #fff; background-color:#000; }
 .invisible {
   display:none;
 }
+
+#data-container {
+  display:none
+}
