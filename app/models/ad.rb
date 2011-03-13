@@ -1,5 +1,6 @@
 class Ad < ActiveRecord::Base
   before_create :create_user
+  after_save :store_details
 
   belongs_to :category
   belongs_to :city
@@ -45,6 +46,12 @@ class Ad < ActiveRecord::Base
   end
 
   private
+
+  def store_details
+    self.t.each do |key, value|
+      self.details.create :content => [key, value].join('|')
+    end
+  end
 
   def create_user
     return unless self.has_new_user?
