@@ -7,6 +7,9 @@ class Ad < ActiveRecord::Base
   belongs_to :user
 
   has_many :details
+  has_many :uploads,
+           :attributes => true,
+           :discard_if => proc { |upload| upload.photo_file_size.nil? }
 
   attr_protected :approved
   attr_accessor :region, :password, :t

@@ -4,11 +4,12 @@
 
 <div id="data-container">
   <%= render :partial => "ads/new/details.html.erb"%>
+  <%= render :partial => "ads/new/upload.html.erb"%>
 </div>
 
 <h1>New ad</h1>
 
-<% form_for(@ad) do |f| %>
+<% form_for(@ad, :html => { :multipart => true }) do |f| %>
   <%= f.error_messages %>
 
   <table>
@@ -67,6 +68,16 @@
     <tr>
       <td><%= f.label :price %></td>
       <td><%= f.text_field :price %></td>
+    </tr>
+    <tr>
+      <td valign="top">Image:</td>
+      <td>
+        <div id='uploads'>
+          <input type="file" size="30" name="ad[upload_attributes][new][0][photo]">
+        </div>
+        <br/>
+        <%= link_to 'Add more images', '#', :class => 'add-more-image'%>
+      </td>
     </tr>
     <tr>
       <td><%= f.submit 'Create' %></td>

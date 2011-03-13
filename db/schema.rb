@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110312212829) do
+ActiveRecord::Schema.define(:version => 20110313013725) do
 
   create_table "ads", :force => true do |t|
     t.string   "name"
@@ -44,6 +44,14 @@ ActiveRecord::Schema.define(:version => 20110312212829) do
   end
 
   add_index "details", ["ad_id"], :name => "index_details_on_ad_id"
+
+  create_table "uploads", :force => true do |t|
+    t.integer "ad_id"
+    t.string  "photo_file_name"
+    t.integer "photo_file_size"
+  end
+
+  add_index "uploads", ["ad_id"], :name => "index_uploads_on_ad_id"
 
   create_table "users", :force => true do |t|
     t.string   "login",                     :limit => 40

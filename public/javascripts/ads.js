@@ -1,3 +1,5 @@
+var upload_images_count = 0;
+
 var show_cities_for_region = function() {
   $(".region_div").each(function() {
     $(this).addClass('invisible');
@@ -56,6 +58,14 @@ var show_details_for_category = function() {
   $("#details-container").slideUp().html(new_html).slideDown();
 };
 
+var add_more_image = function() {
+  var span = $('#upload-image-container').find('span').clone();
+  span.find('input').attr('name', 'ad[upload_attributes][new][' + ++upload_images_count + '][photo]')
+
+  $("#uploads").append(span);
+
+  return false;
+};
 
 $(document).ready(function() {
   $(".regions_select_box").change(show_cities_for_region);
@@ -63,4 +73,6 @@ $(document).ready(function() {
 
   $("#ad_category_id").change(show_details_for_category);
   $("#ad_category_id").trigger('change');
+
+  $(".add-more-image").click(add_more_image);
 });
