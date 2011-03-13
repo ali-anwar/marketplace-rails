@@ -1,0 +1,172 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* Global white space reset */
+* {padding:0; margin:0}
+pre, blockquote, ul, ol, dl, fieldset, address {margin:0 10px}
+li, dd {margin-left:10px}
+fieldset {padding:6px}
+
+/* Undo default HTML styling of common browsers */
+a:link, a:visited {text-decoration:none; font-weight:bold}
+h1 a:link, h1 a:visited, h2 a:link, h2 a:visited, h3 a:link, h3 a:visited, h4 a:link, h4 a:visited {text-decoration:none; color:#0079c1;}
+ul, ol {list-style:none}
+img {border:none}
+
+/* General */
+html, body {height:100%}
+body {
+	background:#ff9600;
+	color:#666666;
+	margin:0 auto;
+	font:normal 12px/13px "Trebuchet MS",arial,serif;
+	}
+#wrapper {padding-bottom:10px;}
+/* General links */
+a:hover {text-decoration:underline}
+a:active {text-decoration:none}
+a:focus, input:focus {outline:none}
+a:hover {color:#333; text-decoration:none;}
+p {margin:0 0 8px 0px}
+p {line-height:18px; font-size:14px; margin-bottom:10px;}
+p.small {font-size:12px; line-height:16px; margin-bottom:5px;}
+.wrap {
+	width:940px;	
+	margin:0 auto;
+	text-align:left; 
+}
+.clear {clear:both;}
+/************************************** Header ************************************************/
+#header, #header .wrap { height:90px;}
+#header {}
+#header .logo {	float:left; margin-top:8px; margin-left:20px;}
+#header .toplinks {
+	float:right;
+	width:330px;
+	text-align:center;
+	margin-top:28px;
+	position:relative;
+	right:50px;
+}
+#header .toplinks ul { float:left; display:inline; list-style-type:none;}
+.toplinks ul li { float:right; padding:0 10px;}
+#header .toplinks ul.topmenu li img {padding-bottom:5px; border:none;}
+#header .toplinks ul.topmenu li a {color:white; font-size:13px;}
+/**********************/
+
+#maincontent {
+	background:white;min-height:90%;
+	height: expression( this.scrollHeight < 534 ? "533px" : "auto" ); 
+	height:auto; padding-top:20px;
+}
+#maincontent #maparea { float:left; background:url(images/map.png) no-repeat; width:470px; height:505px;}
+#maincontent #maparea:hover { float:left; background:url(images/map_over.png) no-repeat; width:470px; height:505px;}
+#maincontent #rightarea {float:right; width:420px;}
+#maincontent #rightarea .searchform { width:420px; height:240px; background:url(images/bg_post_form.png) no-repeat; float:left; color:#666; margin-bottom:10px;}
+#maincontent #rightarea .searchform .title {float:left; width:420px; text-align:center; color:white; font-size:20px; padding:15px 0; margin-bottom:10px;}
+#maincontent #rightarea .searchform form {float:left; padding-left:32px;}
+#maincontent #rightarea .searchform input[type=text], #search .inner .searchform input[type=text] { float:left; width:348px; height:22px; padding:2px; border:1px solid #ccc; color:#666; font-size:12px; margin-bottom:10px;}
+#maincontent #rightarea .searchform select, #search .inner .searchform select { float:left; width:168px; height:25px; padding:2px; border:1px solid #ccc; color:#666; font-size:12px; margin-right:16px; margin-bottom:10px;}
+#maincontent #rightarea .searchform input[type=checkbox], #search .inner .searchform input[type=checkbox] {width:12px; height:11px; padding:0px; color:#666;}
+#maincontent #rightarea .searchform .check, #search .inner .searchform .check { float:left; width:95px; padding-top:15px;}
+#maincontent #rightarea .searchform input[type=button] {background: transparent url(images/search_btn.png) no-repeat; border:none; padding:8px 30px 10px 9px; position:relative; right:46px; float:right; font-size:20px; color:white;}
+#maincontent #rightarea .searchform input[type=button]:hover {color:black;}
+#search .inner .searchform input[type=button] {background: transparent url(images/search_btn_green.png) no-repeat; border:none; padding:3px 13px 10px 13px; position:relative; float:left; font-size:16px; color:white;}
+#search .searchform {float:left;width:100%; padding:0; width:820px;}
+#search .inner .searchform form {float:left; padding:0; width:820px;}
+#search .inner .searchform select {height:28px;}
+#search .inner .searchform input[type=text] {margin-right:10px;}
+#search .inner .searchform .check {padding-top:10px;}
+ 
+.breadcrumbs {float:left; padding-left:40px;}
+.breadcrumbs a, .breadcrumbs a:link, .breadcrumbs a:active {color:black; font-size:12px; font-weight:normal;}
+.breadcrumbs a:hover {text-decoration:underline;}
+
+#tabsList {background:#e7ffe7; padding:10px 10px 0;}
+#tabsList .wrap {height:28px; padding:8px 30px 0;}
+#tabsList .rightlinks {float:right; text-align:left; height:45px; position:relative; right:30px;}
+#tabsList .rightlinks a {color:#666666; font-size:14px; font-weight:normal;}
+#tabsList .rightlinks a:hover {text-decoration:underline;}
+
+#tabsList ul.searchTabs {float:left; display:inline;}
+#tabsList ul.searchTabs li {float:left;}
+#tabsList ul.searchTabs li a { color:white; background:#ffb246; font-size:16px; padding:5px 15px 10px; 	-moz-border-radius-topleft:5px;	-moz-border-radius-topright:5px; border-top-left-radius:5px; border-top-right-radius:5px}
+#tabsList ul.searchTabs li.active a, #tabsList ul.searchTabs li a:active, #tabsList ul.searchTabs li a:hover {color:white; background:#ffb246 url(images/act-tab.png) repeat-x left bottom; font-size:16px;}
+#listing {float:left; margin:0; padding:10px 20px;}
+#listing ul.categoriesFound {float:left; width:670px;}
+#listing ul.categoriesFound li {float:left; width:200px; color:black; font-size:14px; padding:5px;}
+#listing ul.categoriesFound li a {color:#ff9600; font-size:14px; font-weight:normal;}
+
+ul.list {width:840px; padding:10px; margin:0; line-height:18px; float:left; font-size:14px; color:black;}
+ul.list li {border-bottom:1px solid #ccc; float:left; width:840px; padding:10px 0;}
+span.date {float:left; width:60px; font-size:14px; color:black;}
+ul.list li .list-image img {float:left; padding:0 10px;}
+ul.list li .list-name {float:left; width:540px; padding-left:10px;}
+ul.list li .list-name span.name {float:left; width:540px;}
+ul.list li .list-name span.name a {color:#10a910; font-size:14px;}
+ul.list li .list-detail {float:right; padding:0 10px;}
+
+#list-nav {float:left; width:860px; padding:10px 0;}
+#list-nav .count, #list-nav .next {float:left;}
+#list-nav .count a, #list-nav .next a {color:#ff9600; font-size:15px; font-weight:normal; padding:4px; margin-left:15px;}
+#list-nav .last {float:right;}
+#list-nav .last a {color:#ff9600; font-size:15px; font-weight:normal; }
+
+.searchList {float:left;}
+.searchList .stateList, .searchList .unionList {height:auto; float:left; margin-bottom:20px;}
+.searchList h2 {float:left; color:#ff9600; font-size:18px; font-weight:normal; width:420px; padding:5px 0;}
+.searchList ul {list-style:none; display:list-item; margin-left:0px;}
+.searchList ul li {font-size:13px; float:left; line-height:20px; margin-left:0px; margin-right:10px;}
+.about {color:white; height:194px;}
+.about .aboutTxt {float:left; width:562px; margin:25px 35px; text-align:justify; line-height:20px;}
+.about .aboutTxt .title {font-size:18px; color:white; padding-bottom:10px;}
+.about p {font-size:12px;}
+.about .fb {float:right; width:250px; margin-top:40px; position:relative; right:40px;}
+.about .fb img {float:left;}
+.about .fb .txt {float:left; font-size:17px; margin:24px 0 0 20px;}
+.about .fb .txt .large {font-size:32px;}
+
+#searchwrapper {background:white; margin:0 auto; padding:25px 0;}
+#search {float:left; width:911px; margin:10px; background:url(images/search-form-l.png) no-repeat left top; height:126px; padding-left:9px;}
+#search .inner {float:left; width:820px; margin:0px; background:url(images/search-form-mid.png) repeat-x left top; height:66px; padding:30px 38px;}
+#search .end {float:left; width:9px; height:126px; background:url(images/search-form-r.png) no-repeat right top; }
+.bottom {margin:0 auto; padding:25px; color:white;}
+.bottom .category {float:left; margin:0px 40px; width:200px;}
+.bottom .category .title {font-size:18px; font-weight:normal; padding-bottom:6px;}
+.bottom .category ul {margin:0; line-height:18px; float:left;}
+.bottom .category ul li {margin:0; line-height:18px; margin-bottom:20px;}
+.bottom .category ul li a {color:white;}
+
+/************************************** Footer ************************************************/
+#footer {background:#ffb246; height:22px; margin-bottom:20px; padding-top:10px;}
+#footer ul.footlinks {float:left; display:inline; list-style:none;}
+#footer ul.footlinks li {float: left; padding-left:40px;}
+#footer ul.footlinks li a {color:white;}
+#footer .rights {float:right; color:white; margin-right:50px;}
+#footer .rights a {color:white;}
+
+
+.invisible {
+  display:none;
+}
+
+#data-container {
+  display:none
+}
+
+#white-wrap {
+  background: none repeat scroll 0 0 white;
+}
+
+#content {
+  margin: 0 auto;
+  width: 940px;
+  padding: 20px 0;
+	height: expression( this.scrollHeight < 534 ? "533px" : "auto" ); 
+	height:auto;
+	min-height:533px;
+}
+
+table td {
+  padding: 5px;
+}
