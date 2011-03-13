@@ -10,7 +10,7 @@ class AdsController < ApplicationController
   def new
     @ad = Ad.new
     if logged_in?
-      @ad.name = current_user.login
+      @ad.name = current_user.name
       @ad.email = current_user.email
     end
   end
