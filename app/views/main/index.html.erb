@@ -1,9 +1,95 @@
-<% if logged_in? %>
-  <h1>Welcome <%= current_user.name %></h1>
-  <%= link_to 'logout', logout_path %>
-<% else %>
-  <h1>Welcome user</h1>
-  <%= link_to 'login', login_path %>
-  or
-  <%= link_to 'signup', signup_path %>
-<% end %>
+<div class="wrap">
+  <div id="maparea"></div>
+
+  <div id="rightarea">
+    <div class="searchform">
+      <div class="title">
+        What are you looking for today?
+      </div>
+
+      <form>
+        <input type="text" value="Enter a keyword" name="" /> <select name=
+        "All categories">
+          <option>
+            All categories
+          </option>
+        </select> <select name="Entire India">
+          <option>
+            Entire India
+          </option>
+        </select><br />
+
+        <div class="check">
+          <input type="checkbox" value="For Sale" name="for sale" /> For Sale
+        </div>
+
+        <div class="check">
+          <input type="checkbox" value="want to buy" name="want to buy" /> Want to
+          Buy
+        </div><input type="button" value="SEARCH" name="" />
+      </form>
+    </div>
+
+    <div class="searchList">
+      <div class="stateList">
+        <h2>Search by State</h2>
+
+        <ul>
+          <li>Andhra Pradesh<br />
+          Arunachal Pradesh<br />
+          Assam<br />
+          Bihar<br />
+          Chhattisgarh<br />
+          Goa<br />
+          Gujarat</li>
+
+          <li>Haryana<br />
+          Himachal Pradesh<br />
+          Jammu &amp; Kashmir<br />
+          Jharkhand<br />
+          Karnataka<br />
+          Kerala<br />
+          Madhya Pradesh</li>
+
+          <li>Maharashtra<br />
+          Manipur<br />
+          Meghalaya<br />
+          Mizoram<br />
+          Nagaland<br />
+          Orissa<br />
+          Punjab</li>
+
+          <li>Rajasthan<br />
+          Sikkim<br />
+          Tamil Nadu<br />
+          Tripura<br />
+          Uttaranchal<br />
+          Uttar Pradesh<br />
+          West Bengal</li>
+        </ul>
+      </div>
+
+      <div class="unionList">
+        <h2>Search by Union Territory</h2>
+
+        <ul>
+          <li>Delhi<br />
+          Lakshadweep<br />
+          Daman &amp; Diu</li>
+
+          <li>Pondicherry<br />
+          Dadra &amp; Nagar<br />
+          Haveli</li>
+
+          <li>Chandigarh<br />
+          Andaman &amp; Nicobar<br />
+          Islands</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="clear"></div>
+</div>
+
+<div class="clear"></div>
