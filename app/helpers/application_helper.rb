@@ -26,4 +26,9 @@ module ApplicationHelper
   def currency(price)
     "Rs. " + number_with_delimiter(price)
   end
+
+  def page_title
+    @title ||= [controller.class.name.sub('Controller', ''), controller.action_name].join(' > ')
+    [@title, "Geboon.com"].join(' | ')
+  end
 end

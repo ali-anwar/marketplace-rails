@@ -1,5 +1,6 @@
 class AdsController < ApplicationController
   def index
+    @title = "Classified ads"
     @ads = Ad.all
   end
 
@@ -8,6 +9,8 @@ class AdsController < ApplicationController
   end
 
   def new
+    @title = "Post a Free Ad"
+
     @ad = Ad.new
     if logged_in?
       @ad.name = current_user.name
@@ -20,6 +23,7 @@ class AdsController < ApplicationController
   end
 
   def create
+    @title = "Classified ads"
     params[:ad][:user_id] = current_user.id if logged_in?
     @ad = Ad.new(params[:ad])
 
