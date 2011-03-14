@@ -7,81 +7,85 @@
   <%= render :partial => "ads/new/upload.html.erb"%>
 </div>
 
-<h1>New ad</h1>
+<div id="create-new-ad">
+  <h1>Post a Free Ad</h1>
 
-<% form_for(@ad, :html => { :multipart => true }) do |f| %>
-  <%= f.error_messages %>
+  <% form_for(@ad, :html => { :multipart => true }) do |f| %>
+    <%= f.error_messages %>
 
-  <table>
-    <tr>
-      <td></td>
-      <td><%= f.radio_button :private, "1", :checked => @ad.private %> <%= f.label :private, "Private" %> <%= f.radio_button :private, "0", :checked => !@ad.private %> <%= f.label :private, "Company" %></td>
-    </tr>
-    <tr>
-      <td><%= f.label :name %></td>
-      <td><%= f.text_field :name %></td>
-    </tr>
-    <tr>
-      <td><%= f.label :email %></td>
-      <td><%= f.text_field :email %></td>
-    </tr>
-
-    <% unless logged_in? %>
+    <table>
       <tr>
-        <td><%= f.label :password %></td>
-        <td><%= password_field_tag 'ad[password]', nil %></td>
+        <td></td>
+        <td><%= f.radio_button :private, "1", :checked => @ad.private %> <%= f.label :private, "Private" %> <%= f.radio_button :private, "0", :checked => !@ad.private %> <%= f.label :private, "Company" %></td>
       </tr>
       <tr>
-        <td><%= f.label :password_confirmation %></td>
-        <td><%= password_field_tag 'ad[password_confirmation]', nil %></td>
+        <td><%= f.label :name %></td>
+        <td><%= f.text_field :name %></td>
       </tr>
-    <% end %>
+      <tr>
+        <td><%= f.label :email %></td>
+        <td><%= f.text_field :email %></td>
+      </tr>
 
-    <tr>
-      <td><%= f.label :phone %></td>
-      <td><%= f.text_field :phone %> <%= f.check_box :show_phone %> <%= f.label :show_phone %></td>
-    </tr>
-    <tr>
-      <td><%= f.label :category_id %></td>
-      <td><%= category_select_box(:model => "ad", :attribute => "category_id", :value => @ad.category_id, :parent_disabled => true) %></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><span id="details-container"></span></td>
-    </tr>
-    <tr>
-      <td><%= f.label :region %></td>
-      <td><%= regions_select_box(:model => "ad", :attribute => "region", :value => @ad.region) %></td>
-    </tr>
-    <tr>
-      <td><%= f.label :city_id %></td>
-      <td><%= cities_select_box(:model => "ad", :attribute => "city_id", :value => @ad.city_id) %></td>
-    </tr>
-    <tr>
-      <td><%= f.label :title %></td>
-      <td><%= f.text_field :title %></td>
-    </tr>
-    <tr>
-      <td valign="top"><%= f.label :description %></td>
-      <td><%= f.text_area :description %></td>
-    </tr>
-    <tr>
-      <td><%= f.label :price %></td>
-      <td><%= f.text_field :price %></td>
-    </tr>
-    <tr>
-      <td valign="top">Image:</td>
-      <td>
-        <div id='uploads'>
-          <input type="file" size="30" name="ad[upload_attributes][new][0][photo]">
-        </div>
-        <br/>
-        <%= link_to 'Add more images', '#', :class => 'add-more-image'%>
-      </td>
-    </tr>
-    <tr>
-      <td><%= f.submit 'Create' %></td>
-    </tr>
-  </table>
-<% end %>
+      <% unless logged_in? %>
+        <tr>
+          <td><%= f.label :password %></td>
+          <td><%= password_field_tag 'ad[password]', nil %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :password_confirmation %></td>
+          <td><%= password_field_tag 'ad[password_confirmation]', nil %></td>
+        </tr>
+      <% end %>
+
+      <tr>
+        <td><%= f.label :phone %></td>
+        <td><%= f.text_field :phone %> <%= f.check_box :show_phone %> <%= f.label :show_phone %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :category_id %></td>
+        <td><%= category_select_box(:model => "ad", :attribute => "category_id", :value => @ad.category_id, :parent_disabled => true) %></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><span id="details-container"></span></td>
+      </tr>
+      <tr>
+        <td><%= f.label :region %></td>
+        <td><%= regions_select_box(:model => "ad", :attribute => "region", :value => @ad.region) %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :city_id %></td>
+        <td><%= cities_select_box(:model => "ad", :attribute => "city_id", :value => @ad.city_id) %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :title %></td>
+        <td><%= f.text_field :title %></td>
+      </tr>
+      <tr>
+        <td valign="top"><%= f.label :description %></td>
+        <td><%= f.text_area :description %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :price %></td>
+        <td><%= f.text_field :price %></td>
+      </tr>
+      <tr>
+        <td valign="top">Image:</td>
+        <td>
+          <div id='uploads'>
+            <input type="file" size="30" name="ad[upload_attributes][new][0][photo]">
+          </div>
+          <br/>
+          <%= link_to 'Add more images', '#', :class => 'add-more-image'%>
+        </td>
+      </tr>
+      <tr>
+        <td><%= f.submit 'Create', :class => "submit" %></td>
+      </tr>
+    </table>
+  <% end %>
+</div>
+
+<div class="clear"></div>
 

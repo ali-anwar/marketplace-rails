@@ -28,6 +28,7 @@
           Buy
         </div><input type="button" value="SEARCH" name="" />
       </form>
+      <%= link_to image_tag('transparent.gif', :size => "418x40", :style => "float:left;margin-top:17px;"), new_ad_path %>
     </div>
 
     <div class="searchList">
@@ -93,3 +94,8 @@
 </div>
 
 <div class="clear"></div>
+
+<% content_for :bottom do %>
+  <%= render :partial => "main/about"%>
+<% end %>
+

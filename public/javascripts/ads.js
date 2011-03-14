@@ -59,10 +59,10 @@ var show_details_for_category = function() {
 };
 
 var add_more_image = function() {
-  var span = $('#upload-image-container').find('span').clone();
-  span.find('input').attr('name', 'ad[upload_attributes][new][' + ++upload_images_count + '][photo]')
+  var div = $('#upload-image-container').find('div').clone();
+  div.find('input').attr('name', 'ad[upload_attributes][new][' + ++upload_images_count + '][photo]')
 
-  $("#uploads").append(span);
+  $("#uploads").append(div);
 
   return false;
 };
