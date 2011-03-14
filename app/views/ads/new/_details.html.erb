@@ -23,9 +23,9 @@
   <% ['For sale', 'Want to buy'].each do |name| %>
     <%= radio_button_tag "ad[t][status]", name, @ad.t[:status] %> <%= name %>
   <% end %>
-  <br/>
-  Registration Year: <%= vehicle_registration_year_select_tag('ad[t][vehicle_registration_year]', @ad.t[:vehicle_registration_year]) %>
-  <br/>
+  <br/><br/>
+  Registration year: <%= vehicle_registration_year_select_tag('ad[t][vehicle_registration_year]', @ad.t[:vehicle_registration_year]) %>
+  <br/><br/>
   Mileage: <%= vehicle_mileage_select_tag('ad[t][vehicle_mileage]', @ad.t[:vehicle_mileage]) %>
 </div>
 
