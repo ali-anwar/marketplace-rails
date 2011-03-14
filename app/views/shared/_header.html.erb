@@ -1,12 +1,12 @@
 <div id="header">
   <div class="wrap">
-    <div class="logo"><a href="index.html"><img src="/images/logo.png" alt="geboon" /></a></div>
+    <div class="logo"><%= link_to image_tag('logo.png'), root_path %></div>
     <div class="toplinks">
       <ul class="topmenu">
-        <li><a href="#"><img src="/images/icon_home.png" width="19" height="15" /><br/>Home</a></li>
-        <li><a href="#"><img src="/images/icon_fav.png" width="19" height="15" /><br/>Favourites</a></li>
-        <li><a href="#"><img src="/images/icon_search.png" width="19" height="15" /><br/>Search</a></li>
-        <li><a href="#"><img src="/images/icon_ad.png" width="19" height="15" /><br/>Post Ad</a></li>
+        <li><%= link_to [image_tag('icon_home.png', :size => '19x15'), "Home"].join("<br/>"), root_path %></li>
+        <li><%= link_to [image_tag('icon_fav.png', :size => '19x15'), "Favourites"].join("<br/>"), '#' %></li>
+        <li><%= link_to [image_tag('icon_search.png', :size => '19x15'), "Search"].join("<br/>"), ads_path %></li>
+        <li><%= link_to [image_tag('icon_ad.png', :size => '19x15'), "Post Ad"].join("<br/>"), new_ad_path %></li>
       </ul>
     </div>
   </div>

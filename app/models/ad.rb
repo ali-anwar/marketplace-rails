@@ -48,10 +48,23 @@ class Ad < ActiveRecord::Base
     self.user_id.blank?
   end
 
+  def logo
+    photo = self.uploads.first.try(:photo)
+    return 'no-logo.png' unless photo
+    photo.url(:thumb)
+  end
+
+  def timestamp
+    day  = {Date.today => "Today", Date.yesterday => "Yesterday"}[self.created_at.to_date] || self.created_at.strftime('%A')
+    date = self.created_at.strftime("%m/%d/%Y") if self.created_at <= 1.week.ago
+    time = self.created_at.strftime('%H:%M')
+    [day, date, time].compact.join(' ')
+  end
+
   private
 
   def store_details
-    self.t.each do |key, value|
+    (self.t || {}).each do |key, value|
       self.details.create :content => [key, value].join('|')
     end
   end

@@ -22,4 +22,8 @@ module ApplicationHelper
       content_tag(:div, select(options[:model], options[:attribute], options_for_select_box, {:include_blank => '« Choose city »'}), :id => "region-#{i+1}", :class => "invisible region_div")
     end.join
   end
+
+  def currency(price)
+    "Rs. " + number_with_delimiter(price)
+  end
 end
