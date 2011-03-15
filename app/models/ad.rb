@@ -39,6 +39,20 @@ class Ad < ActiveRecord::Base
   validates_presence_of     :password, :if => :has_new_user?
   validates_confirmation_of :password, :if => :has_new_user?, :message => "should match confirmation"
 
+  define_index do
+    indexes category(:name),   :as => :category_name,        :facet => true
+    indexes category(:parent), :as => :category_parent_name, :facet => true
+    indexes city(:name),       :as => :city_name,            :facet => true
+    indexes city(:region),     :as => :city_region,          :facet => true
+    indexes :private,          :as => :private,              :facet => true
+    indexes details.content,   :as => :detail
+    indexes title
+    indexes description
+    has price
+
+    where "approved=1"
+  end
+
   def initialize(options = {})
     options[:t] ||= {}
     super(options)
