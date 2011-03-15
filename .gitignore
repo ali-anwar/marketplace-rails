@@ -3,3 +3,5 @@ config/local.rb
 *~
 *.swp
 *.sphinx.conf
+log/*
+db/sphinx/*
