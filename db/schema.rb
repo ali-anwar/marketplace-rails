@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110313013725) do
+ActiveRecord::Schema.define(:version => 20110315051820) do
 
   create_table "ads", :force => true do |t|
     t.string   "name"
@@ -40,7 +40,13 @@ ActiveRecord::Schema.define(:version => 20110313013725) do
 
   create_table "details", :force => true do |t|
     t.integer "ad_id"
-    t.string  "content"
+    t.string  "status"
+    t.string  "address"
+    t.integer "number_of_rooms"
+    t.integer "size"
+    t.integer "vehicle_registration_year"
+    t.integer "vehicle_mileage"
+    t.integer "vehicle_category"
   end
 
   add_index "details", ["ad_id"], :name => "index_details_on_ad_id"

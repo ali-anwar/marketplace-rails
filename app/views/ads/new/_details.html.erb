@@ -33,7 +33,7 @@
   <% ['For sale', 'Want to buy'].each do |name| %>
     <%= radio_button_tag "ad[t][status]", name, @ad.t[:status] %> <%= name %>
   <% end %>
-  <br/>
+  <br/><br/>
   <%= vehicle_category_select_tag('ad[t][vehicle_category]', @ad.t[:vehicle_category]) %>
 </div>
 

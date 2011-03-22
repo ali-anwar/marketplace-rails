@@ -1,6 +1,7 @@
 class AdsController < ApplicationController
   def index
     @title = "Classified ads"
+    params[:ad] ||= {}
     @ads = Ad.all
   end
 

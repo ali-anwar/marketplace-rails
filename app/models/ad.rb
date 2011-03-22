@@ -6,7 +6,7 @@ class Ad < ActiveRecord::Base
   belongs_to :city
   belongs_to :user
 
-  has_many :details
+  has_one  :detail
   has_many :uploads,
            :attributes => true,
            :discard_if => proc { |upload| upload.photo_file_size.nil? }
@@ -32,7 +32,7 @@ class Ad < ActiveRecord::Base
   validates_presence_of     :city_id, :message => "should be selected"
   validates_associated      :category
 
-  validates_presence_of     :region, :message => "should be selected"
+  validates_presence_of     :region, :message => "should be selected", :unless => :has_city?
 
   validates_numericality_of :price
 
@@ -40,15 +40,26 @@ class Ad < ActiveRecord::Base
   validates_confirmation_of :password, :if => :has_new_user?, :message => "should match confirmation"
 
   define_index do
-    indexes category(:name),   :as => :category_name,        :facet => true
-    indexes category(:parent), :as => :category_parent_name, :facet => true
-    indexes city(:name),       :as => :city_name,            :facet => true
-    indexes city(:region),     :as => :city_region,          :facet => true
-    indexes :private,          :as => :private,              :facet => true
-    indexes details.content,   :as => :detail
     indexes title
     indexes description
+
     has price
+
+    has "private = 1",              :as => :private,              :facet => true, :type => :boolean
+    has "private = 0",              :as => :company,              :facet => true, :type => :boolean
+    has "CRC32(categories.name)",   :as => :category_name,        :facet => true, :type => :integer
+    has "CRC32(categories.parent)", :as => :category_parent_name, :facet => true, :type => :integer
+    has "CRC32(cities.name)",       :as => :city_name,            :facet => true, :type => :integer
+    has "CRC32(cities.region)",     :as => :city_region,          :facet => true, :type => :integer
+
+    has "CRC32(details.status)",           :as => :detail_status,                    :type => :integer
+    has "CRC32(details.vehicle_category)", :as => :detail_vehicle_category,          :type => :integer
+    has detail.number_of_rooms,            :as => :detail_number_of_rooms,           :type => :integer
+    has detail.size,                       :as => :detail_size,                      :type => :integer
+    has detail.vehicle_registration_year,  :as => :detail_vehicle_registration_year, :type => :integer
+    has detail.vehicle_mileage,            :as => :detail_vehicle_mileage,           :type => :integer
+
+    join category, city, details
 
     where "approved=1"
   end
@@ -60,6 +71,10 @@ class Ad < ActiveRecord::Base
 
   def has_new_user?
     self.user_id.blank?
+  end
+
+  def has_city?
+    !self.city_id.nil?
   end
 
   def logo
@@ -78,9 +93,7 @@ class Ad < ActiveRecord::Base
   private
 
   def store_details
-    (self.t || {}).each do |key, value|
-      self.details.create :content => [key, value].join('|')
-    end
+    self.create_detail self.t unless self.t.blank?
   end
 
   def create_user
