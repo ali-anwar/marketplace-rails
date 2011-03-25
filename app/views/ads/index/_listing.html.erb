@@ -19,7 +19,9 @@
             <% if params[:search][:city_region].blank? %>
               <%= ad.city.region %>
             <% else %>
-              <%= ad.city.name %>
+              <% if params[:search][:city_name].blank? %>
+                <%= ad.city.name %>
+              <% end %>
             <% end %>
           </div>  
         </li>

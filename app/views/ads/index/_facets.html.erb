@@ -1,5 +1,5 @@
 <ul class="categoriesFound">
-  <% if params[:search][:category_parent_name].blank? %>
+  <% if params[:search][:category_parent_name].blank? && params[:search][:category_name].blank? %>
     <% @facets[:category_parent_text].each do |text, count| %>
       <li>
         <a href="<%= search_url_with(:category_parent_name => text.to_crc32) %>"><%= text %></a>, <%= number_with_delimiter(count) %>
@@ -15,7 +15,7 @@
     <% else %>
       <% @city_facets[:city_text].each do |text, count| %>
         <li>
-          <% if params[:search][:city_name].to_i == text.to_crc32%>
+          <% if params[:search][:city_name].to_i == text.to_crc32 %>
             <%= text %>, <%= number_with_delimiter(count) %>
           <% else %>
             <a href="<%= search_url_with(:city_name => text.to_crc32) %>"><%= text %></a>, <%= number_with_delimiter(count) %>
