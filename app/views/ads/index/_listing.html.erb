@@ -8,7 +8,7 @@
       <% @ads.each do |ad| %>
         <li> 
           <div class="date"><%= ad.timestamp %></div><div class="list-image"><%= image_tag ad.logo unless params[:hide_thumbnails] %></div>
-          <div class="list-name"><span class="name"><a href="#"><%= ad.title %></a></span><span class="price"><%= currency(ad.price) %></span></div>
+          <div class="list-name"><span class="name"><a href="#"><%= ad.title %></a></span><br/><span class="price"><%= currency(ad.price) %></span></div>
           <div class="list-detail">
             <% if params[:search][:category_name].blank? %>
               <%= link_to ad.category.name, search_url_with(:category_name => ad.category.name.to_crc32) %>
