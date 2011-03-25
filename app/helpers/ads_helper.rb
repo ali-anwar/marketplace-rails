@@ -232,7 +232,11 @@ module AdsHelper
       links << "<span class='previous'>" + link_to("< Previous Page", options) + "</span>"
     end
 
-    pages = (1..@ads.total_pages).collect do |i|
+    from        = [@ads.current_page - @ads.per_page/2, 1].max
+    to          = [from + @ads.per_page - 1, @ads.total_pages].min
+    from        = [to - @ads.per_page + 1, 1].max
+
+    pages = (from..to).collect do |i|
       if @ads.current_page == i
         "<b>#{i}</b>"
       else
