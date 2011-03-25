@@ -31,4 +31,27 @@ module ApplicationHelper
     @title ||= [controller.class.name.sub('Controller', ''), controller.action_name].join(' > ')
     [@title, "Geboon.com"].join(' | ')
   end
+
+  def breadcrumbs_trail
+    search  = params[:search]
+    options = {}
+    output  = [["Geboon.com", root_path]]
+
+    if search[:city_region_text].blank?
+     output << ["Entire India", {}]
+    else
+     output << [search[:city_region_text], {:search => options.merge!(:city_region_text => search[:city_region_text], :city_region_name => search[:city_region_name])}]
+    end
+    output << [City.name_from_crc(search[:city_name]), {:search => options.merge!(:city_name => search[:city_name])}] unless search[:city_name].blank?
+
+    if !search[:category_name].blank?
+      output << [Category.name_from_crc(search[:category_name]), {:search => options.merge!(:category_name => search[:category_name])}]
+    elsif !search[:category_parent_name].blank?
+      output << [Category.parent_from_crc(search[:category_parent_name]), {:search => options.merge!(:category_parent_name => search[:category_parent_name])}]
+    end
+
+    output.collect do |(text, url)|
+      link_to text, url
+    end.join(' > ')
+  end
 end
