@@ -1,0 +1,25 @@
+<% form_tag({:action => 'index'}, {:method => 'get', :onsubmit => 'return check_keyword();'}) do %>
+  <div id="search">
+    <div class="inner">
+      <div class="searchform">
+        <form>
+          <table cellspacing="0" cellpadding="0" border="0" width="840">
+            <tr>
+              <td><%= text_field_tag('search[keyword]', params[:search][:keyword], :class => 'watermarked', :title => 'Enter a keyword') %></td>                            
+              <td><%= search_category_select_box %></td>                            
+              <td><%= search_regions_select_box %></td>                            
+              <td><%= submit_tag 'Search' %></td>
+            </tr>
+            <tr>
+              <td colspan="2"><span id="details-container"></span></td>
+              <td valign="top"><span id="cities-container"></span></td>
+              <td></td>
+            </tr>
+          </table>
+        </form>
+      </div>
+    </div>
+    <div class="end"></div>
+  </div>
+<% end %>
+

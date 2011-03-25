@@ -1,48 +1,17 @@
-<%= render :partial => "ads/search_box" %>
+<% content_for(:head) do %>
+  <%= javascript_include_tag 'ads' %>
+  <%= javascript_include_tag 'jquery.watermarkinput' %>
+<% end %>
+
+<div id="data-container">
+  <%= render :partial => "ads/index/details.html.erb" %>
+  <%= search_cities_select_boxes %>
+</div>
+
+<%= render :partial => "ads/index/search_box" %>
 <%= render :partial => "shared/breadcrumbs" %>
-<div class="clear"></div>
-<div id="tabsList">
-  <div class="wrap">
-      <ul class="searchTabs">
-      <li class="active"><a href="#">All 1 - 30 of 893</a></li>
-      <li><a href="#">Private, 444</a></li>
-
-      <li><a href="#">Company, 449</a></li>
-    </ul>
-
-    <div class="rightlinks">
-     <a href="#">Hide Thumbnails</a> | <a href="#">Show Cheapest First</a>
-    </div>
-  </div>
-</div>
-
-<div class="clear"></div>
-
-<div id="listing">
-  <ul class="categoriesFound">
-    <li><a href="#">Real estate,</a> 14952</li><li><a href="#">Home &amp; Personal Items,</a> 3511</li><li><a href="#">Electronics,</a> 4324</li><li><a href="#">Vehicles,</a> 3167</li><li><a href="#">Leisure, Sports &amp; Hobby,</a> 3232</li><li><a href="#">Jobs &amp; Services,</a> 9988</li>
-  </ul>
-  <div class="clear"></div>
-  <ul class="list">
-  <% @ads.each do |ad| %>
-    <li> 
-      <div class="date"><%= ad.timestamp %></div><div class="list-image"><%= image_tag ad.logo %></div>
-      <div class="list-name"><span class="name"><a href="#"><%= ad.title %></a></span><span class="price"><%= currency(ad.price) %></span></div>
-      <div class="list-detail"><%= ad.category.name %><br/><%= ad.city.name %></div>  
-    </li>
-  <% end %>
-
-  </ul>
-  
-  <div id="list-nav">
-    <span class="count"><a href="#">1 2 3 4 5 6 7 8 9 10</a></span>
-    <span class="next"><a href="#">Next Page &gt;&gt;</a></span>
-   <span class="last"><a href="#">Last Page &gt;&gt;</a></span>
-  </div>
-  
-</div>
-
-<div class="clear"></div>
+<%= render :partial => "ads/index/tabs_list" %>
+<%= render :partial => "ads/index/listing" %>
 
 <% content_for :bottom do %>
   <%= render :partial => "ads/bottom"%>

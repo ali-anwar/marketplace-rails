@@ -1,86 +1,17 @@
 <div class="bottom">
   <div class="wrap">
-    <div class="category">
-      <div class="title">
-        Real Estate
+    <% category_grouped_by_parents_ordered.each do |(parent, categories)| %>
+      <div class="category">
+        <div class="title"><%= parent %></div>
+        <ul>
+          <li>
+          <% categories.each do |category| %>
+            <%= link_to "#{category.name} in #{get_region_name}", :search => {:category_name => category.name.to_crc32, :city_region => get_region_value, :city_region_text => get_region_name} %><br />
+          <% end %>
+          </li>
+        </ul>
       </div>
-
-      <ul>
-        <li><a href="#">Houses in Delhi</a><br />
-        <a href="#">Apartments in Delhi</a><br />
-        <a href="#">Vacation homes in Delhi</a><br />
-        <a href="#">Offices in Delhi</a><br />
-        <a href="#">Land in Delhi</a><br />
-        <a href="#">Flatmates/Paying Guest in Delhi</a><br />
-        <a href="#">Other in Delhi</a></li>
-      </ul>
-
-      <div class="title">
-        Vehicles
-      </div>
-
-      <ul>
-        <li><a href="#">Cars in Delhi</a><br />
-        <a href="#">Motorcycles in Delhi</a><br />
-        <a href="#">Accessories &amp; parts in Delhi</a><br />
-        <a href="#">Trucks in Delhi</a><br />
-        <a href="#">Other vehicles in Delhi</a></li>
-      </ul>
-    </div>
-
-    <div class="category">
-      <div class="title">
-        Home &amp; Personal items
-      </div>
-
-      <ul>
-        <li><a href="#">Home &amp; Garden in Delhi</a><br />
-        <a href="#">Clothing in Delhi</a><br />
-        <a href="#">For Kids (Toys &amp; Clothes) in Delhi</a><br />
-        <a href="#">Jewelry &amp; Watches in Delhi</a></li>
-      </ul>
-
-      <div class="title">
-        Leisure, Sports &amp; Hobby
-      </div>
-
-      <ul>
-        <li><a href="#">Hobbies in Delhi</a><br />
-        <a href="#">Sports &amp; Bicycles in Delhi</a><br />
-        <a href="#">Movies, Books &amp; Magazines in Delhi</a><br />
-        <a href="#">Pets in Delhi</a><br />
-        <a href="#">Tickets in Delhi</a><br />
-        <a href="#">Art &amp; Collectibles in Delhi</a><br />
-        <a href="#">Music &amp; Instruments in Delhi</a></li>
-      </ul>
-    </div>
-
-    <div class="category">
-      <div class="title">
-        Electronics
-      </div>
-
-      <ul>
-        <li><a href="#">Computers &amp; Accessories in Delhi</a><br />
-        <a href="#">TV, Audio, Video, Cameras in Delhi</a><br />
-        <a href="#">Cellphones &amp; gadgets in Delhi</a><br />
-        <a href="#">Video games &amp; consoles in Delhi</a></li>
-      </ul>
-
-      <div class="title">
-        Jobs &amp; Services
-      </div>
-
-      <ul>
-        <li><a href="#">Job offers in Delhi</a><br />
-        <a href="#">Resumes in Delhi</a><br />
-        <a href="#">Services in Delhi</a><br />
-        <a href="#">Classes in Delhi</a><br />
-        <a href="#">Professional/Office equipment in Delhi</a></li>
-
-        <li><a href="#">Other in Delhi</a></li>
-      </ul>
-    </div>
+    <% end %>
   </div>
   <div class="clear"></div>
 </div>

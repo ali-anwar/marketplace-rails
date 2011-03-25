@@ -1,0 +1,43 @@
+<div id="detail-empty">
+</div>
+
+<div id="detail-defaults">
+  <% ['For sale', 'Want to buy'].each do |name| %>
+    <%= check_box_tag "search[status][]", name.to_crc32, params[:search][:status].to_a.include?(name.to_crc32.to_s) %> <%= name %>
+  <% end %>
+</div>
+
+<div id="detail-basic-estates">
+  <% ['For sale', 'For rent', 'Want to rent', 'Want to buy'].each do |name| %>
+    <%= radio_button_tag "search[status][]", name.to_crc32, params[:search][:status].to_a.include?(name.to_crc32.to_s) %> <%= name %>
+  <% end %>
+  <br/><br/>
+  <%= min_rooms_select_tag('search[min_rooms]', params[:search][:min_rooms]) %>
+  <%= min_living_size_select_tag('search[min_living_size]', params[:search][:min_living_size]) %>
+  <br/>
+  <%= max_rooms_select_tag('search[max_rooms]', params[:search][:max_rooms]) %>
+  <%= max_living_size_select_tag('search[max_living_size]', params[:search][:max_living_size]) %>
+</div>
+
+<div id="detail-basic-vehicles">
+  <% ['For sale', 'Want to buy'].each do |name| %>
+    <%= check_box_tag "search[status][]", name.to_crc32, params[:search][:status].to_a.include?(name.to_crc32.to_s) %> <%= name %>
+  <% end %>
+  <br/><br/>
+  <%= min_price_select_tag('search[min_price]', params[:search][:min_price]) %>
+  <%= reg_year_from_select_tag('search[reg_year_from]', params[:search][:reg_year_from]) %>
+  <%= mileage_from_select_tag('search[mileage_from]', params[:search][:mileage_from]) %>
+  <br/>
+  <%= max_price_select_tag('search[max_price]', params[:search][:max_price]) %>
+  <%= reg_year_to_select_tag('search[reg_year_to]', params[:search][:reg_year_to]) %>
+  <%= mileage_to_select_tag('search[mileage_to]', params[:search][:mileage_to]) %>
+</div>
+
+<div id="detail-other-vehicles">
+  <% ['For sale', 'Want to buy'].each do |name| %>
+    <%= check_box_tag "search[status][]", name.to_crc32, params[:search][:status].to_a.include?(name.to_crc32.to_s) %> <%= name %>
+  <% end %>
+  <br/><br/>
+  <%= vehicle_category_select_tag('search[vehicle_category]', params[:search][:vehicle_category], :crc32 => true) %>
+</div>
+

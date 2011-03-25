@@ -1,8 +1,10 @@
 class AdsController < ApplicationController
   def index
     @title = "Classified ads"
-    params[:ad] ||= {}
-    @ads = Ad.all
+
+    params[:search] ||= {}
+
+    @ads, @facets, @all_facets, @city_facets = Ad.perform_search(params[:search])
   end
 
   def show

@@ -1,0 +1,24 @@
+<div id="tabsList">
+  <div class="wrap">
+      <ul class="searchTabs">
+      <%= search_tabs %>
+    </ul>
+
+    <div class="rightlinks">
+      <% if params[:hide_thumbnails] %>
+        <%= link_to 'Show Thumbnails', params.merge(:hide_thumbnails => nil) %>
+      <% else %>
+        <%= link_to 'Hide Thumbnails', params.merge(:hide_thumbnails => true) %>
+      <% end %>
+      |
+      <% unless params[:search][:order].blank? %>
+        <%= link_to 'Show Latest First', search_url_with(:order => nil) %>
+      <% else %>
+        <%= link_to 'Show Cheapest First', search_url_with(:order => true) %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="clear"></div>
+

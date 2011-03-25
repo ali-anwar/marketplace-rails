@@ -13,7 +13,7 @@ h1, h2, h3, h4, h1 a:link, h1 a:visited, h2 a:link, h2 a:visited, h3 a:link, h3 
 h1 {font-size:20px; margin:20px 0;}
 h2 {font-size:16px; margin:10px 0;}
 ul, ol {list-style:none}
-img {border:none}
+img, img a {border:none}
 
 
 /* General */
@@ -31,10 +31,11 @@ a:hover {text-decoration:underline}
 a:active {text-decoration:none; color:#10a910;}
 a:focus, input:focus {outline:none}
 a:hover {color:#333; text-decoration:none;}
-input[type=text], input[type=password], select, textarea {border:1px solid #ccc; color:#666; font-size:12px; width:348px; height:22px; padding:2px;}
+input[type=text], input[type=password], select, textarea {border:1px solid #ccc; color:#666; font-size:12px; width:348px; height:20px; padding:2px;}
 textarea {height:200px;}
 input[type=radio] {width:40px;}
-
+table td { padding: 5px;}
+.invisible {display:none;}
 p {margin:0 0 8px 0px}
 p {line-height:18px; font-size:14px; margin-bottom:10px;}
 p.small {font-size:12px; line-height:16px; margin-bottom:5px;}
@@ -49,7 +50,7 @@ p.small {font-size:12px; line-height:16px; margin-bottom:5px;}
 #header .logo {	float:left; margin-top:8px; margin-left:20px;}
 #header .toplinks {
 	float:right;
-	width:330px;
+	width:350px;
 	text-align:center;
 	margin-top:28px;
 	position:relative;
@@ -61,27 +62,31 @@ p.small {font-size:12px; line-height:16px; margin-bottom:5px;}
 #header .toplinks ul.topmenu li a {color:white; font-size:13px;}
 /**********************/
 
-#maincontent { background:white;min-height:90%; height: expression( this.scrollHeight < 534 ? "533px" : "auto" ); height:auto; padding:20px; }
+#maincontent { background:white; min-height:90%; height: expression( this.scrollHeight < 534 ? "533px" : "auto" ); height:auto; padding:20px; }
+#content {  margin: 0 auto; width:940px;  padding: 20px 0;
+	height: expression( this.scrollHeight < 534 ? "533px" : "auto" ); height:auto; min-height:533px;
+}
+
 #maparea { float:left; background:url(/images/map.png) no-repeat; width:470px; height:505px;}
-/*#maparea:hover { float:left; background:url(/images/map_over.png) no-repeat; width:470px; height:505px;}*/
+/*#maincontent #maparea:hover { float:left; background:url(/images/map_over.png) no-repeat; width:470px; height:505px;}*/
 #rightarea {float:right; width:420px;}
 #rightarea .searchform { width:420px; height:240px; background:url(/images/bg_post_form.png) no-repeat; float:left; color:#666; margin-bottom:10px;}
 #rightarea .searchform .title {float:left; width:420px; text-align:center; color:white; font-size:20px; padding:15px 0; margin-bottom:10px;}
 #rightarea .searchform form {float:left; padding-left:32px;}
-#rightarea .searchform input[type=text], #search .inner .searchform input[type=text] { float:left; width:348px; height:22px; padding:2px; border:1px solid #ccc; color:#666; font-size:12px; margin-bottom:10px;}
-#rightarea .searchform select, #search .inner .searchform select { float:left; width:168px; height:25px; padding:2px; border:1px solid #ccc; color:#666; font-size:12px; margin-right:16px; margin-bottom:10px;}
+#rightarea .searchform input[type=text], #search .inner .searchform input[type=text] { float:left; width:348px; height:22px; padding:2px; border:1px solid #ccc; color:#666; font-size:12px;}
+#rightarea .searchform select, #search .inner .searchform select { width:168px; height:25px; padding:2px; border:1px solid #ccc; color:#666; font-size:12px; }
 #rightarea .searchform input[type=checkbox], #search .inner .searchform input[type=checkbox] {width:12px; height:11px; padding:0px; color:#666;}
-#rightarea .searchform .check, #search .inner .searchform .check { float:left; width:95px; padding-top:15px;}
+#rightarea .searchform .check, #search .inner .searchform .check { width:95px; padding-top:15px;}
 #rightarea .searchform input[type=button] {background: transparent url(/images/search_btn.png) no-repeat; border:none; padding:8px 30px 10px 9px; position:relative; right:46px; float:right; font-size:20px; color:white;width: 126px;}
 #rightarea .searchform input[type=button]:hover {color:black;}
-#search .inner .searchform input[type=button] {background: transparent url(/images/search_btn_green.png) no-repeat; border:none; padding:3px 13px 10px 13px; position:relative; float:left; font-size:16px; color:white;}
-#search .searchform {float:left;width:100%; padding:0; width:820px;}
-#search .inner .searchform form {float:left; padding:0; width:820px;}
+#rightarea .searchform .postad {float:left; position:relative; left:49px; top:15px;}
+
+#search .inner .searchform input[type=submit] {background: transparent url(/images/search_btn_green.png) no-repeat; border:none; height:27px; width:77px; font-size:16px; color:white;}
 #search .inner .searchform select {height:28px;}
 #search .inner .searchform input[type=text] {margin-right:10px;}
 #search .inner .searchform .check {padding-top:10px;}
- 
-.breadcrumbs {float:left; padding-left:20px; margin:15px 0;width:100%;}
+
+.breadcrumbs {float:left; padding-left:20px; margin:15px 0;}
 .breadcrumbs a, .breadcrumbs a:link, .breadcrumbs a:active {color:black; font-size:12px; font-weight:normal;}
 .breadcrumbs a:hover {text-decoration:underline;}
 
@@ -95,7 +100,7 @@ p.small {font-size:12px; line-height:16px; margin-bottom:5px;}
 #tabsList ul.searchTabs li {float:left;}
 #tabsList ul.searchTabs li a { color:white; background:#ffb246; font-size:16px; padding:5px 15px 10px; 	-moz-border-radius-topleft:5px;	-moz-border-radius-topright:5px; border-top-left-radius:5px; border-top-right-radius:5px; -webkit-border-top-right-radius:5px; -webkit-border-top-left-radius:5px; }
 #tabsList ul.searchTabs li.active a, #tabsList ul.searchTabs li a:active, #tabsList ul.searchTabs li a:hover {color:white; background:#ffb246 url(/images/act-tab.png) repeat-x left bottom; font-size:16px;}
-#listing {float:left; margin:0; padding:10px 20px; margin-top:60px;}
+#listing {float:left; margin:0; padding:10px 20px;margin-top:60px;}
 #listing ul.categoriesFound {float:left; width:670px;}
 #listing ul.categoriesFound li {float:left; width:200px; color:black; font-size:14px; padding:5px;}
 #listing ul.categoriesFound li a {color:#ff9600; font-size:14px; font-weight:normal;}
@@ -108,12 +113,15 @@ ul.list li .list-name {float:left; width:460px; padding-left:10px;}
 ul.list li .list-name span.name {float:left; width:540px;}
 ul.list li .list-name span.name a {color:#10a910; font-size:14px;}
 ul.list li .list-detail {float:left; padding:0 10px; width:130px;text-align:center;}
+ul.list li .list-detail a {color:black}
 
 #list-nav {float:left; width:860px; padding:10px 0;}
-#list-nav .count, #list-nav .next {float:left;}
-#list-nav .count a, #list-nav .next a {color:#ff9600; font-size:15px; font-weight:normal; padding:4px; margin-left:15px;}
+#list-nav .count, #list-nav .first, #list-nav .next, #list-nav .previous {float:left;}
+
+#list-nav .count a, #list-nav .count b, #list-nav .next a, #list-nav .previous a {color:#ff9600; font-size:15px; font-weight:normal; padding:4px; margin-left:15px;}
+#list-nav .count b {color:#771000;}
 #list-nav .last {float:right;}
-#list-nav .last a {color:#ff9600; font-size:15px; font-weight:normal; }
+#list-nav .last a, #list-nav .first a {color:#ff9600; font-size:15px; font-weight:normal; }
 
 .searchList {float:left;}
 .searchList .stateList, .searchList .unionList {height:auto; float:left; margin-bottom:20px;}
@@ -130,9 +138,9 @@ ul.list li .list-detail {float:left; padding:0 10px; width:130px;text-align:cent
 .about .fb .txt .large {font-size:32px;}
 
 #searchwrapper {background:white; margin:0 auto; padding:25px 0;}
-#search {float:left; width:911px; margin:10px; background:url(/images/search-form-l.png) no-repeat left top; height:126px; padding-left:9px;}
-#search .inner {float:left; width:820px; margin:0px; background:url(/images/search-form-mid.png) repeat-x left top; height:66px; padding:30px 38px;}
-#search .end {float:left; width:9px; height:126px; background:url(/images/search-form-r.png) no-repeat right top; }
+#search {float:left; width:922px; margin:10px; background:url(/images/search-box-top.png) no-repeat left top; height:auto; padding-top:7px;}
+#search .inner {float:left; width:842px; margin:0px; background:url(/images/search-box-mid.png) repeat-y left top; height:auto; padding:20px 40px;}
+#search .end {float:left; width:922px; height:7px; background:url(/images/search-box-bottom.png) no-repeat right top; padding:0;}
 .bottom {margin:0 auto; padding:25px; color:white;}
 .bottom .category {float:left; margin:0px 40px; width:200px;}
 .bottom .category .title {font-size:18px; font-weight:normal; padding-bottom:6px;}
@@ -176,65 +184,13 @@ ul.list li .list-detail {float:left; padding:0 10px; width:130px;text-align:cent
 #footer .rights {float:right; color:white; margin-right:50px;padding:5px 0;}
 #footer .rights a {color:white;}
 
-.invisible {
-  display:none;
-}
 
-#data-container {
-  display:none
-}
+#data-container {display:none;}
+#white-wrap {  background: none repeat scroll 0 0 white;}
 
-#white-wrap {
-  background: none repeat scroll 0 0 white;
-}
-
-#content {
-  margin: 0 auto;
-  width: 940px;
-  padding: 20px 0;
-  height: expression( this.scrollHeight < 534 ? "533px" : "auto" ); 
-  height:auto;
-  min-height:533px;
-}
-
-table td {
-  padding: 5px;
-}
-
-
-.fieldWithErrors {
-  padding: 2px;
-  background-color: #10A910;
-  display: table;
-}
-
-#errorExplanation {
-  width: 400px;
-  border: 2px solid #10A910;
-  padding: 7px;
-  padding-bottom: 12px;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
-}
-
-#errorExplanation h2 {
-  text-align: left;
-  font-weight: bold;
-  padding: 5px 5px 5px 15px;
-  font-size: 12px;
-  margin: -7px;
-  background-color: #10A910;
-  color: #fff;
-}
-
-#errorExplanation p {
-  color: #333;
-  margin-bottom: 0;
-  padding: 5px;
-}
-
-#errorExplanation ul li {
-  font-size: 12px;
-  list-style: square;
-}
+.fieldWithErrors { padding: 2px; background-color: #10A910; display: table; }
+#errorExplanation { width: 400px; border: 2px solid #10A910; padding: 7px; padding-bottom: 12px; margin-bottom: 20px; background-color: #f0f0f0; }
+#errorExplanation h2 { text-align: left; font-weight: bold; padding: 5px 5px 5px 15px; font-size: 12px; margin: -7px; background-color: #10A910; color: #fff; }
+#errorExplanation p { color: #333; margin-bottom: 0; padding: 5px; }
+#errorExplanation ul li { font-size: 12px; list-style: square; }
 
