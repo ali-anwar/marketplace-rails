@@ -171,7 +171,7 @@ module AdsHelper
   end
 
   def vehicle_category_select_tag(name, v, options = {})
-    options_array = [['« All categories »', '']] + [["Tractors", "Boats", "Caravans", "Buses and taxis"].collect {|a| [a, a]}]
+    options_array = [['« All categories »', '']] + ["Tractors", "Boats", "Caravans", "Buses and taxis"].collect {|a| [a, a]}
     options_for_select_tag = options_array.collect do |(text, value)|
       value, v = [value.to_crc32, v.to_i] if options[:crc32]
       selected = "selected='selected'" if v == value

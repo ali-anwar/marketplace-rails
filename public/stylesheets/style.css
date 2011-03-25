@@ -110,7 +110,7 @@ ul.list li {border-bottom:1px solid #ccc; float:left; width:840px; padding:10px 
 div.date {float:left; width:100px; font-size:14px; color:black;text-align:center;}
 ul.list li .list-image {width:100px;float:left;overflow: hidden;text-align:center;}
 ul.list li .list-name {float:left; width:460px; padding-left:10px;}
-ul.list li .list-name span.name {float:left; width:540px;}
+ul.list li .list-name span.name {float:left; width:500px;}
 ul.list li .list-name span.name a {color:#10a910; font-size:14px;}
 ul.list li .list-detail {float:left; padding:0 10px; width:130px;text-align:center;}
 ul.list li .list-detail a {color:black}
