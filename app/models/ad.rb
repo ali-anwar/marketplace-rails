@@ -109,7 +109,7 @@ class Ad < ActiveRecord::Base
   end
 
   def self.make_options(options)
-    search_options            = {:with => {}}
+    search_options            = {:with => {}, :with_all => {}}
     search_options[:page]     = options[:page] || 1
     search_options[:per_page] = options[:per_page] || PER_PAGE
     search_options[:order]    = options[:order].blank? && "@id DESC" || "price ASC"
@@ -130,6 +130,8 @@ class Ad < ActiveRecord::Base
       range = make_range(options[min], options[max])
       search_options[:with][a] = range if range
     end
+
+    search_options[:with][:detail_status] = options[:status] unless options[:status].blank?
 
     search_options
   end
