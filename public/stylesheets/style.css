@@ -81,7 +81,7 @@ p.small {font-size:12px; line-height:16px; margin-bottom:5px;}
 #rightarea .searchform input[type=button]:hover {color:black;}
 #rightarea .searchform .postad {float:left; position:relative; left:49px; top:15px;}
 
-#search .inner .searchform input[type=submit] {background: transparent url(/images/search_btn_green.png) no-repeat; border:none; height:27px; width:77px; font-size:16px; color:white;}
+#search .inner .searchform input[type=submit] {cursor: pointer; background: transparent url(/images/search_btn_green.png) no-repeat; border:none; height:27px; width:77px; font-size:16px; color:white;}
 #search .inner .searchform select {height:28px;}
 #search .inner .searchform input[type=text] {margin-right:10px;}
 #search .inner .searchform .check {padding-top:10px;}
