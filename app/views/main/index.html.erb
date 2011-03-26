@@ -1,5 +1,10 @@
+<% content_for(:head) do %>
+  <%= javascript_include_tag 'main' %>
+<% end %>
+
+
 <div class="wrap">
-  <div id="maparea"></div>
+  <%= render :partial => "main/index/map" %>
 
   <div id="rightarea">
     <div class="searchform">
@@ -36,37 +41,45 @@
         <h2>Search by State</h2>
 
         <ul>
-          <li>Andhra Pradesh<br />
-          Arunachal Pradesh<br />
-          Assam<br />
-          Bihar<br />
-          Chhattisgarh<br />
-          Goa<br />
-          Gujarat</li>
+          <li>
+            <%= map_city_link('Andhra Pradesh', 'area_8', '8,450, 0, 1, 24', '8, 450, 0, 0, 24') %><br/>
+            <%= map_city_link('Arunachal Pradesh', 'area_9', '9,450, 0, 1, 6', '9, 450, 0, 0, 6') %><br/>
+            <%= map_city_link('Assam', 'area_10', '10,450, 0, 1, 8', '10, 450, 0, 0, 8') %><br/>
+            <%= map_city_link('Bihar', 'area_11', '11,450, 0, 1, 11', '11, 450, 0, 0, 11') %><br/>
+            <%= map_city_link('Chhattisgarh', 'area_12', '12,450, 0, 1, 21', '12, 450, 0, 0, 21') %><br/>
+            <%= map_city_link('Goa', 'area_13', '13,450, 0, 1, 26', '13, 450, 0, 0, 26') %><br/>
+            <%= map_city_link('Gujarat', 'area_14', '14,450, 0, 1, 17', '14, 450, 0, 0, 17') %><br/>
+          </li>
 
-          <li>Haryana<br />
-          Himachal Pradesh<br />
-          Jammu &amp; Kashmir<br />
-          Jharkhand<br />
-          Karnataka<br />
-          Kerala<br />
-          Madhya Pradesh</li>
+          <li>
+            <%= map_city_link('Haryana', 'area_15', '15,450, 0, 1, 5', '15, 450, 0, 0, 5') %><br/>
+            <%= map_city_link('Himachal Pradesh', 'area_16', '16,450, 0, 1, 2', '16, 450, 0, 0, 2') %><br/>
+            <%= map_city_link('Jammu & Kashmir', 'area_17', '17,450, 0, 1, 1', '17, 450, 0, 0, 1') %><br/>
+            <%= map_city_link('Jharkhand', 'area_18', '18,450, 0, 1, 16', '18, 450, 0, 0, 16') %><br/>
+            <%= map_city_link('Karnataka', 'area_19', '19,450, 0, 1, 25', '19, 450, 0, 0, 25') %><br/>
+            <%= map_city_link('Kerala', 'area_20', '20,450, 0, 1, 27', '20, 450, 0, 0, 27') %><br/>
+            <%= map_city_link('Madhya Pradesh', 'area_21', '21,450, 0, 1, 15', '21, 450, 0, 0, 15') %><br/>
+          </li>
 
-          <li>Maharashtra<br />
-          Manipur<br />
-          Meghalaya<br />
-          Mizoram<br />
-          Nagaland<br />
-          Orissa<br />
-          Punjab</li>
+          <li>
+            <%= map_city_link('Maharashtra', 'area_22', '22, 450, 0, 1, 23', '22, 450, 0, 0, 23') %><br/>
+            <%= map_city_link('Manipur', 'area_23', '23, 450, 0, 1, 13', '23, 450, 0, 0, 13') %><br/>
+            <%= map_city_link('Meghalaya', 'area_24', '24, 450, 0, 1, 14', '24, 450, 0, 0, 14') %><br/>
+            <%= map_city_link('Mizoram', 'area_25', '25, 450, 0, 1, 19', '25, 450, 0, 0, 19') %><br/>
+            <%= map_city_link('Nagaland', 'area_26', '26, 450, 0, 1, 12', '26, 450, 0, 0, 12') %><br/>
+            <%= map_city_link('Orissa', 'area_27', '27, 450, 0, 1, 22', '27, 450, 0, 0, 22') %><br/>
+            <%= map_city_link('Punjab', 'area_28', '28, 450, 0, 1, 3', '28, 450, 0, 0, 3') %><br/>
+          </li>
 
-          <li>Rajasthan<br />
-          Sikkim<br />
-          Tamil Nadu<br />
-          Tripura<br />
-          Uttaranchal<br />
-          Uttar Pradesh<br />
-          West Bengal</li>
+          <li>
+            <%= map_city_link('Rajasthan', 'area_29', '29, 450, 0, 1, 10', '29, 450, 0, 0, 10') %><br/>
+            <%= map_city_link('Sikkim', 'area_30', '30, 450, 0, 1, 9', '30, 450, 0, 0, 9') %><br/>
+            <%= map_city_link('Tamil Nadu', 'area_31', '31, 450, 0, 1, 28', '31, 450, 0, 0, 28') %><br/>
+            <%= map_city_link('Tripura', 'area_32', '32, 450, 0, 1, 18', '32, 450, 0, 0, 18') %><br/>
+            <%= map_city_link('Uttaranchal', 'area_34', '34, 450, 0, 1, 4', '34, 450, 0, 0, 4') %><br/>
+            <%= map_city_link('Uttar Pradesh', 'area_33', '33, 450, 0, 1, 7', '33, 450, 0, 0, 7') %><br/>
+            <%= map_city_link('West Bengal', 'area_35', '35, 450, 0, 1, 20', '35, 450, 0, 0, 20') %><br/>
+          </li>
         </ul>
       </div>
 
@@ -74,17 +87,22 @@
         <h2>Search by Union Territory</h2>
 
         <ul>
-          <li>Delhi<br />
-          Lakshadweep<br />
-          Daman &amp; Diu</li>
+          <li>
+            <%= map_city_link('Delhi') %><br/>
+            <%= map_city_link('Lakshadweep') %><br/>
+            <%= map_city_link('Daman & Diu') %><br/>
+          </li>
 
-          <li>Pondicherry<br />
-          Dadra &amp; Nagar<br />
-          Haveli</li>
+          <li>
+            <%= map_city_link('Pondicherry') %><br/>
+            <%= map_city_link('Dadra & Nagar') %><br/>
+            <%= map_city_link('Haveli') %><br/>
+          </li>
 
-          <li>Chandigarh<br />
-          Andaman &amp; Nicobar<br />
-          Islands</li>
+          <li>
+            <%= map_city_link('Chandigarh') %><br/>
+            <%= map_city_link('Andaman & Nicobar Islands') %><br/>
+          </li>
         </ul>
       </div>
     </div>

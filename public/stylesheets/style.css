@@ -66,9 +66,9 @@ p.small {font-size:12px; line-height:16px; margin-bottom:5px;}
 #content {  margin: 0 auto; width:940px;  padding: 20px 0;
 	height: expression( this.scrollHeight < 534 ? "533px" : "auto" ); height:auto; min-height:533px;
 }
-
-#maparea { float:left; background:url(/images/map.png) no-repeat; width:470px; height:505px;}
-/*#maincontent #maparea:hover { float:left; background:url(/images/map_over.png) no-repeat; width:470px; height:505px;}*/
+.map {background: url("/images/regions.gif") no-repeat scroll 0 0 transparent; height: 499px; width: 450px;}
+.map_highlight {background-image: url("/images/india_map.gif"); height: 499px; overflow: hidden; width: 450px;}
+#maparea { float:left; width:470px; height:505px;}
 #rightarea {float:right; width:420px;}
 #rightarea .searchform { width:420px; height:240px; background:url(/images/bg_post_form.png) no-repeat; float:left; color:#666; margin-bottom:10px;}
 #rightarea .searchform .title {float:left; width:420px; text-align:center; color:white; font-size:20px; padding:15px 0; margin-bottom:10px;}
@@ -125,6 +125,7 @@ ul.list li .list-detail a {color:black}
 
 .searchList {float:left;}
 .searchList .stateList, .searchList .unionList {height:auto; float:left; margin-bottom:20px;}
+.searchList a {font-weight:normal;}
 .searchList h2 {float:left; color:#ff9600; font-size:18px; font-weight:normal; width:420px; padding:5px 0;}
 .searchList ul {list-style:none; display:list-item; margin-left:0px;}
 .searchList ul li {font-size:13px; float:left; line-height:20px; margin-left:0px; margin-right:10px;}
