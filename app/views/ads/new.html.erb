@@ -5,6 +5,7 @@
 <div id="data-container">
   <%= render :partial => "ads/new/details.html.erb"%>
   <%= render :partial => "ads/new/upload.html.erb"%>
+  <%= cities_select_box(:model => "ad", :attribute => "city_id", :value => @ad.city_id) %>
 </div>
 
 <div id="create-new-ad">
@@ -56,7 +57,7 @@
       </tr>
       <tr>
         <td><%= f.label :city_id %></td>
-        <td><%= cities_select_box(:model => "ad", :attribute => "city_id", :value => @ad.city_id) %></td>
+        <td><span id="cities-container"></span></td>
       </tr>
       <tr>
         <td><%= f.label :title %></td>

@@ -1,18 +1,10 @@
 var upload_images_count = 0;
 
 var show_cities_for_region = function() {
-  $(".region_div").each(function() {
-    $(this).addClass('invisible');
-    $(this).find('select').attr('name', '');
-  });
+  var selector = "#region-" + $(this).find("option:selected").val();
+  var new_html = $(selector).html();
 
-  if($(this).val() == '')
-    return;
-
-  var selector = "#region-" + $(this).val();
-
-  $(selector).removeClass('invisible');
-  $(selector).find('select').attr('name', 'ad[city_id]');
+  $("#cities-container").html(new_html);
 };
 
 var show_cities_for_search_region = function() {
