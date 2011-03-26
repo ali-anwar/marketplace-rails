@@ -188,7 +188,7 @@ ul.list li .list-detail a {color:black}
 #data-container {display:none;}
 #white-wrap {  background: none repeat scroll 0 0 white;}
 
-.fieldWithErrors { padding: 2px; background-color: #10A910; display: table; }
+.fieldWithErrors { padding: 2px; background-color: #10A910; display: table; color:#FFF; }
 #errorExplanation { width: 400px; border: 2px solid #10A910; padding: 7px; padding-bottom: 12px; margin-bottom: 20px; background-color: #f0f0f0; }
 #errorExplanation h2 { text-align: left; font-weight: bold; padding: 5px 5px 5px 15px; font-size: 12px; margin: -7px; background-color: #10A910; color: #fff; }
 #errorExplanation p { color: #333; margin-bottom: 0; padding: 5px; }
