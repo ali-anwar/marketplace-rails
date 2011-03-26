@@ -71,6 +71,8 @@ class Ad < ActiveRecord::Base
     join category, city, details
 
     #where "approved=1"
+
+    set_property :delta => true
   end
 
   def self.max_int
