@@ -44,7 +44,7 @@ users = (1..100).collect do |i|
   User.create :name => "User#{i}-(#{rand(10000)})", :email => "user#{i}@#{rand(10000)}.com", :password => "password", :password_confirmation => "password"
 end
 
-ads = (1..100).collect do |i|
+ads = (1..1000).collect do |i|
   category = categories[rand(categories.length)]
   city     = cities[rand(cities.length)]
   user     = users[rand(users.length)]

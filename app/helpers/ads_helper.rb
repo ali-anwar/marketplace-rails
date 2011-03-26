@@ -327,7 +327,7 @@ module AdsHelper
     categories_with_parents = Category.all.group_by(&:parent)
     ["Real estate", "Home & Personal items",  "Electronics",
      "Vehicles", "Leisure, Sports & hobby", "Jobs & Services",
-     ""].collect {|parent| [parent, categories_with_parents[parent]]}
+     " "].collect {|parent| [parent, categories_with_parents[parent]]}
   end
 
   def get_region_name

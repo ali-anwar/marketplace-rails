@@ -2,11 +2,7 @@
   <% if params[:search][:category_parent_name].blank? && params[:search][:category_name].blank? %>
     <% @facets[:category_parent_text].each do |text, count| %>
       <li>
-        <% if text.blank? %>
-          <a href="<%= search_url_with(:category_name => '412686884') %>">Other</a>, <%= number_with_delimiter(count) %>
-        <% else %>
-          <a href="<%= search_url_with(:category_parent_name => text.to_crc32) %>"><%= text.blank? && "Other" || text %></a>, <%= number_with_delimiter(count) %>
-        <% end %>
+        <a href="<%= search_url_with(:category_parent_name => text.to_crc32) %>"><%= text.strip.blank? && "Other" || text %></a>, <%= number_with_delimiter(count) %>
       </li>
     <% end %>
   <% else %>
