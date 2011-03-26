@@ -165,10 +165,9 @@ class Ad < ActiveRecord::Base
   end
 
   def timestamp
-    day  = {Date.today => "Today", Date.yesterday => "Yesterday"}[self.created_at.to_date] || self.created_at.strftime('%A')
-    date = self.created_at.strftime("%m/%d/%Y") if self.created_at <= 1.week.ago
+    day  = {Date.today => "Today", Date.yesterday => "Yesterday"}[self.created_at.to_date] || self.created_at.strftime('%d %b')
     time = self.created_at.strftime('%H:%M')
-    [day, date, time].compact.join('<br/>')
+    [day, time].compact.join('<br/>')
   end
 
   private
